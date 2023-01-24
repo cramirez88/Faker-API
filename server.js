@@ -13,7 +13,15 @@ const userObj = {
 }
 
 const companyObj = {
-  
+  id: faker.datatype.uuid(),
+  name: faker.name.fullName(),
+  address: {
+    street: faker.address.street(),
+    city: faker.address.cityName(),
+    state: faker.address.state(),
+    zipCode: faker.address.zipCode(),
+    country: faker.address.country()
+  }
 }
 
 
@@ -21,4 +29,9 @@ const createUser = () => {
   return userObj
 }
 
+const createCompany = () => {
+  return companyObj
+}
+
 console.log(createUser())
+console.log(createCompany())
