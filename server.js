@@ -33,5 +33,20 @@ const createCompany = () => {
   return companyObj
 }
 
-console.log(createUser())
-console.log(createCompany())
+app.get('/api/users/new', (req, res) => {
+  res.send(createUser())
+})
+
+app.get('/api/companies/new', (req, res) => {
+  res.send(createCompany())
+})
+
+app.get('/api/user/company' ,(req,res) => {
+  res.json({
+    user: createUser(),
+    company: createCompany()
+  })
+})
+
+
+app.listen(PORT, console.log(`I am listening on PORT: ${PORT}`))
